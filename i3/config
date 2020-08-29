@@ -4,8 +4,8 @@
 # this file and re-run i3-config-wizard(1).
 #
 smart_gaps on
-gaps inner 10
-gaps outer 10
+gaps inner 15
+gaps outer 15
 title_align center
 # Window rules
 # Set colors from xrdb. Colors must be set in xrdb before i3 config is loaded.
@@ -13,13 +13,18 @@ new_window pixel 5
 new_float  pixel 5
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 exec --no-startup-id picom 
+exec --no-startup-id redshift -l 47:11 &
 #exec --no-startup-id feh --bg-fill ~/Pictures/wallpaper/121458.jpg
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id xrandr --output DVI-I-1 --right-of  DP-3
-exec --no-startup-id sh ~/Documents/scripts/onedrive.sh
-bindsym $mod+p exec --no-startup-id sh ~/Documents/scripts/cycle_audio.sh
-bindsym $mod+s exec --no-startup-id scrot -u -d 2
+
 set $mod Mod1
+
+bindsym $mod+Shift+o exec --no-startup-id sh ~/Documents/scripts/onedrive.sh
+bindsym $mod+p exec --no-startup-id sh ~/Documents/scripts/cycle_audio.sh
+bindsym $mod+i exec --no-startup-id sh ~/Documents/scripts/rotate_screen.sh
+bindsym $mod+s exec --no-startup-id scrot -u -d 2
+
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -122,15 +127,15 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "&#xf1bc;"
-set $ws2 "&#xf120;"
-set $ws3 "&#xf268;"
-set $ws4 "&#xf121;"
+set $ws1 "&#xf120;"
+set $ws2 "&#xf268;"
+set $ws3 "&#xf121;"
+set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
+set $ws9 "&#xf1bc;"
 set $ws10 "10"
 
 # switch to workspace
@@ -175,16 +180,17 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym l resize shrink width 10 px or 10 ppt
         bindsym odiaeresis resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5  ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -200,7 +206,8 @@ bar {
     font pango:DejaVu Sans Mono, FontAwesome 12
     position top
     status_command ~/.config/i3/i3status-rs ~/.config/i3/status.toml
-    
+    workspace_buttons yes 
+    strip_workspace_numbers yes
     colors {
         separator #666666
         background #222222
@@ -213,12 +220,12 @@ bar {
 }
 
 # AUTOSTART
-for_window [class="Spotify"] move container to workspace $ws1
-for_window [class="Google-Chrome"] move container to workspace $ws3
+for_window [class="spotify"] move container to workspace $ws1
+for_window [class="google-chrome-stable"] move container to workspace $ws3
 for_window [class="Clion"] move container to workspace $ws4
 
-exec --no-startup-id google-chrome 
-exec --no-startup-id spotify 
+exec --no-startup-id google-chrome-stable 
+#exec --no-startup-id spotify 
 
 
 # Plasma compatibility improvements

@@ -146,7 +146,7 @@ window:
   #
   # If the font quality on non-retina display looks bad then set
   # `use_thin_strokes` to `true` and enable font smoothing by running the
-  # following command:
+  #   following command:
   #   `defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO`
   #
   # This is a global setting and will require a log out or restart to take
@@ -160,22 +160,22 @@ window:
 colors:
    # Default colors
    primary:
-     background: '#2E3440'
+     background: '#002B36'
      foreground: '#D8DEE9'
 
    # Normal colors
    normal:
      black:   '#3B4252'
-     red:     '#BF616A'
+     red:     '#793030'
      green:   '#A3BE8C'
      yellow:  '#EBCB8B'
-     blue:    '#81A1C1'
+     blue:    '#2681A9'
      magenta: '#B48EAD'
      cyan:    '#88C0D0'
      white:   '#E5E9F0'
 
    # Bright colors
-   bright:
+bright:
      black:   '#4C566A'
      red:     '#BF616A'
      green:   '#A3BE8C'
@@ -232,8 +232,8 @@ colors:
 # Specifying a `duration` of `0` will disable the visual bell.
 #visual_bell:
 #  animation: EaseOutExpo
-#  duration: 0
-#  color: '#ffffff'
+# duration: 0
+# color: '#ffffff'
 
 # Background opacity
 #
@@ -241,11 +241,11 @@ colors:
 # The value `0.0` is completely transparent and `1.0` is opaque.
 background_opacity: 0.95
 
-#selection:
+  #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
   # When set to `true`, selected text will be copied to the primary clipboard.
-  #save_to_clipboard: false
+  #  save_to_clipboard: false
 
 # Allow terminal applications to change Alacritty's window title.
 #dynamic_title: true

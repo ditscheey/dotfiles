@@ -43,7 +43,7 @@ visualizer.spectrum.bar.width=1
 
 ##The amount of space between each bar in the spectrum visualizer. Defaults to 1. It's possible to set this to
 ##zero to have no space between bars
-visualizer.spectrum.bar.spacing=0
+#visualizer.spectrum.bar.spacing=0
 
 ##Available smoothing options are monstercat, sgs, none.
 visualizer.spectrum.smoothing.mode=sgs
@@ -85,7 +85,7 @@ visualizer.spectrum.falloff.mode=top
 
 
 ##Turns off overriding the user's terminal colors. This is true by default.
-colors.override.terminal=false
+#colors.override.terminal=false
 
 ##Specifies the color scheme. The color scheme must be in ~/.config/vis/colors/ directory. The default scheme is "colors".
-#colors.scheme=rainbow
+colors.scheme=blue
