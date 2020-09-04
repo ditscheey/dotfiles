@@ -5,7 +5,14 @@ call plug#begin('~/.vim/plugged')
  Plug 'lervag/vimtex'
  Plug 'lilydjwg/colorizer'
  Plug 'mboughaba/i3config.vim'
-" Make sure you use single quotes
+ Plug 'frazrepo/vim-rainbow'
+ Plug 'airblade/vim-gitgutter'
+ Plug 'sirtaj/vim-openscad'
+ Plug 'Chiel92/vim-autoformat'
+ Plug 'dzeban/vim-log-syntax'
+ Plug 'djoshea/vim-autoread' 
+" Plug 'mtdl9/vim-log-highlighting'
+ " Make sure you use single quotes
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
@@ -55,3 +62,29 @@ set rnu
 let g:lightline ={		
  \ 'colorscheme': 'wombat',
       \ }
+
+let g:rainbow_active = 1
+
+
+" visual mode copy/paste/cut
+vmap <C-c> y
+vmap <C-x> c
+vmap <C-v> p
+
+
+" autoformat 
+"let g:python3_host_prog=/usr/bin/python3/
+noremap <Mod5+F> :Autoformat<CR>
+
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
+
+" global editor settings
+let g:textwidth = 80
+
+
+" log settings
+"let au rc Syntax log syn keyword logLevelInfo info
+"let au rc Syntax log syn keyword logLevelWarning warning
+"let au rc Syntax log syn keyword logLevelError error
