@@ -10,11 +10,17 @@ new_float  pixel 5
 exec --no-startup-id picom 
 exec --no-startup-id redshift -l 47:11 &
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id mailspring 
+exec --no-startup-id termite
+#exec --no-startup-id mailspring 
+exec --no-startup-id sh ~/Documents/scripts/onedrive.sh
 exec --no-startup-id conky -c ~/.config/conky/conky.conf &
+#exec --no-startup-id ~/.cargo/bin/i3-auto-layout &
+exec_always --no-startup-id alternating_layouts.py &
 
-exec --no-startup-id xrandr --output DP-0 --primary --output DVI-I-1 --right-of DP-0
-#exec --no-startup-id xrandr --output DP-2 --primary --mode 2560x1440  --rate 74.97 --output DVI-I-1 --mode 1920x1080 --rate 60.00 --right-of DP-2
+
+
+#exec --no-startup-id xrandr --output DP-0 --primary --output DVI-I-1 --right-of DP-0
+exec --no-startup-id xrandr --output DP-2 --primary --mode 2560x1440  --rate 74.97 --output DVI-I-1 --mode 1920x1080 --rate 60.00 --right-of DP-2
 
 
 exec --no-startup-id sh ~/.config/polybar/launch.sh 
@@ -22,13 +28,16 @@ exec --no-startup-id sh ~/.config/polybar/launch.sh
 set $mod Mod4
 
 # custom keybindings 
-bindsym $mod+Shift+o exec --no-startup-id sh ~/Documents/scripts/onedrive.sh
 bindsym $mod+p exec --no-startup-id sh ~/Documents/scripts/cycle_audio.sh
 bindsym $mod+i exec --no-startup-id sh ~/Documents/scripts/rotate_screen.sh
 bindsym $mod+s exec --no-startup-id scrot -u -d 2
-bindsym $mod+t exec --no-startup-id thunar &
+bindsym $mod+t exec --no-startup-id dolphin &
 bindsym $mod+b exec --no-startup-id sh ~/.config/polybar/launch.sh 
 
+
+bindsym $mod+Shift+o exec --no-startup-id openrgb --server 
+bindsym $mod+Shift+u exec --no-startup-id /opt/urserver/urserver --daemon
+# start server for keyboard visualizer and rbg stuff 
 bindsym $mod+c exec --no-startup-id conky -c ~/.config/conky/conky.conf &
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -67,7 +76,8 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec alacritty
-bindsym $mod+Return exec konsole
+#bindsym $mod+Return exec konsole
+bindsym $mod+Return exec termite
 #bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
